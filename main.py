@@ -15,8 +15,8 @@ referencia_recibo = "pagamento do arrendamento do pasto para colocar gado no Jar
 data_recibo = "19/04/2024"#input str
 cidade_recibo = "Monte Sião"#input str
 estado_recibo = "MG"
-recebedor = "recebedor"#input str
-doc_recebedor = "documento recebedor"#input str
+recebedor = "Évora Administração de Imóveis ltda"#input str
+doc_recebedor = "20024324000177"#input str
 
 document = Document()
 
@@ -38,8 +38,20 @@ corpo.add_run(f'", inscrito no CPF n° {formatar_doc(cpf_cliente)}, a importânc
 
 data = document.add_paragraph()
 data.alignment = WD_ALIGN_PARAGRAPH.CENTER
-data_run = data.add_run(f'{cidade_recibo} - {estado_recibo.upper()}, {formatar_data(data_recibo)}')
-data.paragraph_format.space_after = Pt(50)
+data_run = data.add_run(f'{cidade_recibo} - {estado_recibo.upper()}, {formatar_data(data_recibo)}.')
+data.paragraph_format.space_after = Pt(72)
 data.paragraph_format.space_before = Pt(50)
+
+assinatura = document.add_paragraph()
+assinatura.add_run('\n\n')
+assinatura.add_run('__________________________________________________________________________')
+assinatura.alignment = WD_ALIGN_PARAGRAPH.CENTER
+
+nome_recebedor = document.add_paragraph()
+nome_recebedor.alignment = WD_ALIGN_PARAGRAPH.CENTER
+nome_recebedor_run = nome_recebedor.add_run(f'{recebedor.upper()}')
+documento_recebedor = document.add_paragraph()
+documento_recebedor_run = documento_recebedor.add_run(f'Documento: {formatar_doc(doc_recebedor)}')
+documento_recebedor.alignment = WD_ALIGN_PARAGRAPH.CENTER
 
 document.save(f'{nome_recibo}.docx')
