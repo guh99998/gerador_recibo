@@ -16,7 +16,7 @@ def main():
     estado_recibo = "MG"
 
     pagador = Pessoa("Gustavo Rodrigues Lopes", "09825330635")
-    recebedor = Pessoa("Cintia Carvalho", "12345678910")
+    recebedor = Pessoa("Portucale Imóveis", "05302130000100")
     recibo = Recibo(pagador, recebedor, nome_recibo, valor_recibo, referencia_recibo, data_recibo, cidade_recibo, estado_recibo)
     recibo.criar_recibo()
     recibo.salvar_recibo()
