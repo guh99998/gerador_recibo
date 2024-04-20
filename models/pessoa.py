@@ -5,3 +5,9 @@ class Pessoa:
 
     def nome_upper(self):
         return self._nome.upper()
+
+    def tipo_pessoa(self):
+        if len(self._documento) == 11:
+            return 'CPF'
+        else:
+            return 'CNPJ'
