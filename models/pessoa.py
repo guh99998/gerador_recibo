@@ -4,6 +4,9 @@ class Pessoa:
         self._documento = documento
 
     def nome_upper(self):
+        ''''
+        Formata uma string recebida, deixando a string inteira com letras maiúsculas
+        '''
         return self._nome.upper()
 
     def tipo_pessoa(self):
