@@ -1,25 +1,31 @@
 from num2words import num2words
 
-def formatar_numero_extenso(value):
-    real_part = int(value)
-    centavo_part = int(round((value - real_part) * 100))
+def formatar_numero_extenso(valor):
+    '''
+    Formata um valor no formato '350' para 'trezentos e cinquenta reais'
 
-    if real_part == 1:
-        real_text = num2words(real_part, lang='pt_BR') + " real"
+    :param valor: Int ou Float representando o valor.
+    :return: String formatada com o valor por extenso.
+    '''
+    parte_real = int(valor)
+    parte_centavos = int(round((valor - parte_real) * 100))
+
+    if parte_real == 1:
+        texto_real = num2words(parte_real, lang='pt_BR') + " real"
     else:
-        real_text = num2words(real_part, lang='pt_BR') + " reais"
+        texto_real = num2words(parte_real, lang='pt_BR') + " reais"
 
-    if centavo_part == 1:
-        centavo_text = num2words(centavo_part, lang='pt_BR') + " centavo"
+    if parte_centavos == 1:
+        texto_centavos = num2words(parte_centavos, lang='pt_BR') + " centavo"
     else:
-        centavo_text = num2words(centavo_part, lang='pt_BR') + " centavos"
+        texto_centavos = num2words(parte_centavos, lang='pt_BR') + " centavos"
 
-    if real_part > 0 and centavo_part > 0:
-        return f"{real_text} e {centavo_text}"
-    elif real_part > 0:
-        return real_text
-    elif centavo_part > 0:
-        return centavo_text
+    if parte_real > 0 and parte_centavos > 0:
+        return f"{texto_real} e {texto_centavos}"
+    elif parte_real > 0:
+        return texto_real
+    elif parte_centavos > 0:
+        return texto_centavos
     else:
         return "zero reais"
 
