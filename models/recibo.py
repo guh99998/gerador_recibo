@@ -1,5 +1,4 @@
 from docx import Document
-from docx.shared import Pt
 from modules.format_documento import formatar_doc
 from modules.format_data import formatar_data
 from modules.format_numero_extenso import formatar_numero_extenso
