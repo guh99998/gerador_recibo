@@ -35,7 +35,7 @@ class Recibo:
         run_corpo = corpo.add_run({self._pagador._nome.upper()})
         run_corpo.bold = True
         corpo.add_run(
-            f'", inscrito no CPF n° {formatar_doc(self._pagador._documento)}, a importância de R${self._valor:.2f} ({formatar_numero_extenso(self._valor)}), referente ao {self._referencia}.'
+            f'", inscrito no {self._pagador.tipo_pessoa()} n° {formatar_doc(self._pagador._documento)}, a importância de R${self._valor:.2f} ({formatar_numero_extenso(self._valor)}), referente ao {self._referencia}.'
         )
 
     def add_data_assinatura(self):
@@ -60,7 +60,7 @@ class Recibo:
         nome_recebedor_run = nome_recebedor.add_run(f"{self._recebedor.nome_upper()}")
         documento_recebedor = self.document.add_paragraph()
         documento_recebedor_run = documento_recebedor.add_run(
-            f"Documento: {formatar_doc(self._recebedor._documento)}"
+            f"{self._recebedor.tipo_pessoa()}: {formatar_doc(self._recebedor._documento)}"
         )
         documento_recebedor.alignment = WD_ALIGN_PARAGRAPH.CENTER
 
