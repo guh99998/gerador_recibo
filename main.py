@@ -13,7 +13,6 @@ def main():
     recebedor = Pessoa("Portucale Imóveis", "05302130000100")
     recibo = Recibo(pagador, recebedor, nome_recibo, valor_recibo, referencia_recibo, data_recibo, cidade_recibo, estado_recibo)
     recibo.criar_recibo()
-    recibo.salvar_recibo()
 
 
 if __name__ == "__main__":
