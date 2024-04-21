@@ -101,3 +101,4 @@ class Recibo:
         self.add_corpo()
         self.add_data_assinatura()
         self.add_recebedor()
+        self.salvar_recibo()
